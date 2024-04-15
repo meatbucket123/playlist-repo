@@ -1,4 +1,38 @@
-/* src/styles.css */
+.bg-charcoal {
+  background-color: #2E4052;
+}
+
+.bg-crimson {
+  background-color: #A20000;
+}
+
+.bg-neongreen {
+  background-color: 	#2f8ca3;
+}
+
+.color-neongreen {
+  color: 	#2f8ca3 !important;
+}
+
+.input-neongreen {
+  color: 	#FFF;
+}
+
+.color-shadow {
+  color:#030504;
+}
+
+.bg-shadow {
+  background-color: #030504;
+}
+
+.bg-neonorange {
+  background-color: #f4af2d;
+}
+
+.color-neonorange {
+  color: #f4af2d;
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -13,12 +47,6 @@ body {
   margin: 10px;
 }
 
-.container > div {
-  flex: 1;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
 ul {
   list-style: none;
@@ -43,14 +71,61 @@ button:hover {
   background-color: #0056b3;
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
+@font-face {
+  font-family: 'Tr2n';
+  src: url('./Tr2n.ttf') format('truetype');
+}
 
-  .container > div {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+.text-tron {
+  font-family: 'Tr2n';
+}
+
+.text-large {
+  font-size:5rem;
+}
+
+.text-big {
+  font-size:2.5rem;
+}
+
+.text-regular {
+  font-size:1.5rem;
+}
+
+.text-small {
+  font-size:1.0rem;
+}
+
+.border-neonorange {
+  border-color: #f4af2d;
+}
+
+.border-neongreen {
+  border-color: 	#2f8ca3 !important;
+}
+
+.shadow-neongreen {
+  text-shadow: 0 0 10px #2f8ca3, 0 0 20px #2f8ca3, 0 0 30px #2f8ca3, 0 0 40px #2f8ca3;
+}
+
+.shadow-neonorange {
+  text-shadow: 0 0 10px #f4af2d, 0 0 20px #f4af2d, 0 0 30px #f4af2d, 0 0 40px #f4af2d;
+}
+
+.shadow-shadow {
+  text-shadow: 0 0 10px #030504, 0 0 20px #030504, 0 0 30px #030504, 0 0 40px #030504;
+}
+
+.box-neonorange { 
+  box-shadow: 0 0 10px #f4af2d, 0 0 10px #f4af2d, 0 0 20px #f4af2d, 0 0 10px #f4af2d;
+}
+
+.box-neongreen {
+  box-shadow: 0 0 3px #2f8ca3, 0 0 7px #2f8ca3, 0 0 5px #2f8ca3, 0 0 3px #2f8ca3;
+}
+
+.placeholder-white::placeholder {
+  color: #2f8ca3;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
 }
