@@ -1,7 +1,18 @@
 
 import logo from "./logo.svg";
+
+import Songs from "./Songs.js";
+import Playlist from "./Playlist.js";
+import Results from "./Results.js";
+import Title from "./Title.js";
+
 import "./styles.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useState } from "react";
+
+
+
 const tempMusicData = [
   {
     id: 1,
@@ -22,6 +33,7 @@ const tempMusicData = [
     genre: "Jazz",
   },
 ];
+
 const tempPlaylist = [
   {
     id: 1,
@@ -50,43 +62,22 @@ export default function App() {
     setPlaylist([...playlist, music]);
   };
   return (
-    <div>
-      <nav>
-        <h1 style={{ textAlign: "center" }}>Music App</h1>
+    <div className="">
+      <nav className="d-flex row">
+        <Title></Title>
         <input
-          className="search"
+          className="search col"
           type="text"
           placeholder="Search movies..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <p>
-        Found <strong>X</strong> results
-      </p>
+        <Results className = "d-flex col-4"></Results>
       </nav>
-      <div className="container">
-        <div className="container">
-          <h2>Music List</h2>
-
-          <ul>
-            {musics.map((music) => (
-              <li key={music.id}>
-                {music.title} by {music.artist} ({music.genre})
-                <button>♥️</button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="container">
-          <h2>Playlist</h2>
-          <ul>
-            {playlist.map((music) => (
-              <li key={music.id}>
-                {music.title} by {music.artist}
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="d-flex row">
+        <Songs musics = {tempMusicData}></Songs>
+        <Playlist playlist = {tempPlaylist}></Playlist>
+        
       </div>
     </div>
   );
