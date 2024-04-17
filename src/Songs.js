@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './styles.css';
-import Modal from 'react-modal'; // Import your Modal component
+import Modal from 'react-modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 Modal.setAppElement('#root');
 
-function Songs({musics, title, playlists, addToPlaylist}) {
+function Songs({ musics, title, playlists, addToPlaylist, removeFromPlaylist }) {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedSong, setSelectedSong] = useState(null);
 
@@ -22,48 +24,60 @@ function Songs({musics, title, playlists, addToPlaylist}) {
     setModalOpen(false);
   };
 
-    return (
-      <div className="container">
-      <h2 className='text-tron color-neongreen shadow-neongreen'>{title}</h2>
+  const handleRemoveFromPlaylist = (playlistId, song) => {
+    removeFromPlaylist(playlistId, song); // Pass playlist ID instead of playlist title
+    // Optionally, you can also close the modal here
+  };
+
+  return (
+    <div className="container">
+      <h2 className='text-tron color-neongreen shadow-neongreen'>{}Playlists</h2>
       <ul>
+        <h2 className='text-tron color-neongreen shadow-neongreen'>{title}</h2>
         {musics.map((music) => (
           <li className='d-flex justify-content-between' key={music.id}>
-            <button className='bg-transparent color-neongreen shadow-neongreen'>{music.title} by {music.artist} ({music.genre})</button>
-            <button className='bg-transparent border-neongreen border-3 box-neongreen' onClick={() => handleHeartClick(music)}>♥️</button>
+            <button className='bg-transparent color-neongreen shadow-neongreen'>
+              {music.title} by {music.artist} ({music.genre})
+            </button>
+            <button className='bg-transparent border-neongreen border-3 box-neongreen' onClick={() => handleHeartClick(music)}>
+              ♥️
+            </button>
+            <button className='bg-transparent border-red border-3 box-red' onClick={() => handleRemoveFromPlaylist(title, music)}>
+              <FontAwesomeIcon icon={faTrashAlt} />
+            </button>
           </li>
         ))}
       </ul>
       <Modal
         className={`d-flex flex-column justify-content-center align-items-center`}
-        isOpen={isModalOpen} 
+        isOpen={isModalOpen}
         onRequestClose={handleModalClose}
         contentLabel="Add to Playlist"
         style={{
           overlay: {
             backgroundColor: 'black',
-            opacity:0.85,
+            opacity: 0.85,
           },
           content: {
             backgroundColor: 'black',
-            color: 'white', // You might want to set the text color to white for better contrast
-            // Add more styles as needed
+            color: 'white',
           },
         }}
-        
       >
-  <h2 className='d-flex row'>Select a playlist</h2>
-  
-  <ul className='d-flex'>
-  {playlists.filter(playlist => playlist.title !== 'All').map((playlist) => (
-  <button className='color-neongreen bg-transparent text-tron text-big shadow-neongreen border-neongreen mx-3' key={playlist.id} onClick={() => handleAddToPlaylist(playlist)}>
-    <b>{playlist.title}</b>
-  </button>
-))}
-</ul>
-  <button className='d-flex bg-neongreen box-neongreen' onClick={handleModalClose}><b>Close</b></button>
+        <h2 className='d-flex row'>Select a playlist</h2>
+        <ul className='d-flex flex-wrap'>
+          {playlists.filter((playlist) => playlist.title !== 'All').map((playlist) => (
+            <li key={playlist.id} className='mx-2 my-2'>
+              <button onClick={() => handleAddToPlaylist(playlist)} className='bg-transparent border-neongreen border-3 box-neongreen px-3 py-1 rounded-pill'>
+                <b>{playlist.title}</b>
+              </button>
+            </li>
+          ))}
+        </ul>
+        <button className='d-flex bg-neongreen box-neongreen' onClick={handleModalClose}><b>Close</b></button>
       </Modal>
     </div>
-    )
+  );
 }
 
 export default Songs;
