@@ -63,6 +63,7 @@ function Songs({ musics, title, playlists, addToPlaylist, removeFromPlaylist }) 
           },
         }}
       >
+        {/* eggs */}
         <h2 className='d-flex row'>Select a playlist</h2>
         <ul className='d-flex flex-wrap'>
           {playlists.filter((playlist) => playlist.title !== 'All').map((playlist) => (
