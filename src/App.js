@@ -121,7 +121,7 @@ export default function App() {
   return (
     <div className="bg-black">
       <nav className="d-flex row">
-        <Nav></Nav>
+        <Nav playlists={playlists} selectedPlaylist={title}></Nav>
       </nav>
       <br/>
       <br/>

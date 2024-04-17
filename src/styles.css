@@ -26,6 +26,10 @@
   background-color: #030504;
 }
 
+.bg-nav {
+  background-color: #0f100f;
+}
+
 .bg-neonorange {
   background-color: #f4af2d;
 }
@@ -128,4 +132,17 @@ button:hover {
   color: #2f8ca3;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  background: white;
+  color: black;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
 }

@@ -25,6 +25,7 @@ function Songs({musics, title, playlists, addToPlaylist}) {
     return (
       <div className="container">
       <h2 className='text-tron color-neongreen shadow-neongreen'>{title}</h2>
+      <p className='d-flex color-neongreen shadow-neongreen'><b>Total songs: {musics.length}</b></p>
       <ul>
         {musics.map((music) => (
           <li className='d-flex justify-content-between' key={music.id}>
