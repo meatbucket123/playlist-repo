@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa'; // Import the "+" icon from react-icons/fa
 
+
 export default function Nav({
   handleNewPlaylistSubmit,
   newPlaylistTitle,

@@ -23,7 +23,6 @@ function Songs({ musics, title, playlists, addToPlaylist, removeFromPlaylist }) 
     addToPlaylist(playlist, selectedSong);
     setModalOpen(false);
   };
-
   const handleRemoveFromPlaylist = (playlistId, song) => {
     removeFromPlaylist(playlistId, song); // Pass playlist ID instead of playlist title
     // Optionally, you can also close the modal here
